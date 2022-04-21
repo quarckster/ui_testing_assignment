@@ -18,9 +18,33 @@ def test_login():
     pass
 
 
+def test_logout():
+    pass
+
+
+def test_register():
+    pass
+
+
 def test_edit_profile():
     pass
 
 
 def test_post_create_delete():
+    pass
+
+
+def test_search():
+    pass
+
+
+def test_messages():
+    pass
+
+
+def test_follow():
+    pass
+
+
+def test_explore():
     pass

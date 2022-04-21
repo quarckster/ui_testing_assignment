@@ -1,0 +1,22 @@
+version: "3.9"
+   
+services:
+  selenium:
+    image: quay.io/redhatqe/selenium-standalone:latest
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "5999:5999"
+  microblog:
+    image: quay.io/redhatqe/microblog
+    ports:
+      - "5000:5000"
+  tests:
+    build: .
+    tty: true
+    volumes:
+      - ./src:/opt/app-root/src/assignment:z
+    working_dir: /opt/app-root/src/assignment
+    depends_on:
+      - selenium
+      - microblog

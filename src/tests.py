@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def selenium():
     driver = webdriver.Remote(
         command_executor="http://selenium:4444/wd/hub",
@@ -22,8 +22,20 @@ def test_logout():
     pass
 
 
-def test_register():
-    pass
+def test_register(selenium):
+    selenium.get("http://microblog:5000/auth/register")
+    username_field = selenium.find_element_by_id("username")
+    username_field.send_keys("new_user")
+    email_field = selenium.find_element_by_id("email")
+    email_field.send_keys("new_user@example.org")
+    password_field = selenium.find_element_by_id("password")
+    password_field.send_keys("some_password")
+    repeat_password_field = selenium.find_element_by_id("password2")
+    repeat_password_field.send_keys("some_password")
+    submit = selenium.find_element_by_id("submit")
+    submit.click()
+    alert = selenium.find_element_by_xpath(".//div[@role='alert']")
+    assert alert.text == "Congratulations, you are now a registered user!"
 
 
 def test_edit_profile():

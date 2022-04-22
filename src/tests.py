@@ -23,7 +23,9 @@ def test_logout():
 
 
 def test_register(selenium):
+    # Load the page for registration
     selenium.get("http://microblog:5000/auth/register")
+    # Fill in the fields
     username_field = selenium.find_element_by_id("username")
     username_field.send_keys("new_user")
     email_field = selenium.find_element_by_id("email")
@@ -32,8 +34,10 @@ def test_register(selenium):
     password_field.send_keys("some_password")
     repeat_password_field = selenium.find_element_by_id("password2")
     repeat_password_field.send_keys("some_password")
+    # Submit the form
     submit = selenium.find_element_by_id("submit")
     submit.click()
+    # Check for the success message
     alert = selenium.find_element_by_xpath(".//div[@role='alert']")
     assert alert.text == "Congratulations, you are now a registered user!"
 

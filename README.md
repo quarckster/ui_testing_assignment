@@ -4,7 +4,14 @@ This repository contains the required files for implementing a few UI tests usin
 
 ## Prerequisites
 
-You will need [`docker`](https://docs.docker.com/get-docker/) and [`docker-compose`](https://docs.docker.com/compose/install/) installed. These packages are usually available via your package manager if you're using Linux. If you're using Fedora or have problems with cgroups, you can also substitute `docker` with [`podman`](https://podman.io/getting-started/installation) that is also compatible with [`docker-compose`](https://www.redhat.com/sysadmin/podman-docker-compose).
+You will need [`docker`](https://docs.docker.com/get-docker/) and
+[`docker-compose`](https://docs.docker.com/compose/install/) installed. These packages are usually
+available via your package manager if you're using Linux. If you're using Fedora or have problems
+with cgroups, you can also substitute `docker` with
+[`podman`](https://podman.io/getting-started/installation) that is also compatible with
+[`docker-compose`](https://www.redhat.com/sysadmin/podman-docker-compose). To watch automation in
+action you should have a VNC viewer installed such as `tigervnc-viewer`, `gvncviewer`, `krdc` or
+`remmina`. VNC server is avaialable on `127.0.0.1:5999`.
 
 ## Structure
 
